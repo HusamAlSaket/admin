@@ -1,0 +1,31 @@
+
+body {
+    background-color: #f4f7fa; /* Light background color */
+}
+.table-header {
+    background-color: #007bff; /* Blue background for header */
+    color: white;
+}
+.table th {
+    font-weight: bold;
+}
+.table td {
+    vertical-align: middle; /* Centering content vertically */
+}
+.table-striped tbody tr:nth-of-type(odd) {
+    background-color: #e9ecef; /* Light gray for odd rows */
+}
+.table-hover tbody tr:hover {
+    background-color: #d1e7fd; /* Light blue on hover */
+}
+.btn-custom {
+    background-color: #28a745; /* Green button color */
+    color: white;
+}
+.btn-custom:hover {
+    background-color: #218838; /* Darker green on hover */
+}
+.table-responsive {
+    border: 1px solid #dee2e6; /* Border around the table */
+    border-radius: .25rem; /* Rounded corners */
+}

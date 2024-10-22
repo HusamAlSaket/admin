@@ -1,17 +1,21 @@
 <?php
-include("data/config.php");
-try{
-    $sql ="SELECT* FROM  category";
+include('data/config.php');
+
+try {
+    $sql = "SELECT * FROM category";
     $stmt = $conn->query($sql);
     $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
     if (count($result) > 0) {
-        echo "<table border='1' cellpadding='10' cellspacing='0'>
-                <tr>
-                    <th>Category ID</th>
-                    <th>Category Name</th>
-                    <th>Created at</th>
-                    <th>Updated at</th>
-                </tr>";
+        echo "<div class='col-12'>
+        <table class='table table-bordered'>
+            <tr>
+                <th>Category ID</th>
+                <th>Category Name</th>
+                <th>Created At</th>
+                <th>Updated At</th>
+                <th>Action</th>
+            </tr>";
+
         foreach ($result as $row) {
             echo "<tr>
                     <td>" . htmlspecialchars(is_null($row['category_id']) ? '' : $row['category_id']) . "</td>

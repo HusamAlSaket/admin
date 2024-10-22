@@ -1,3 +1,4 @@
+
 <?php
 session_start();
 
@@ -186,7 +187,7 @@ session_start();
 					    </li><!--//nav-item-->
 					    <li class="nav-item">
 					        <!--//Bootstrap Icons: https://icons.getbootstrap.com/ -->
-					        <a class="nav-link active" href="products.php">
+					        <a class="nav-link " href="products.php">
 						        <span class="nav-icon">
 						        <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-folder" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
   <path d="M9.828 4a3 3 0 0 1-2.12-.879l-.83-.828A1 1 0 0 0 6.173 2H2.5a1 1 0 0 0-1 .981L1.546 4h-1L.5 3a2 2 0 0 1 2-2h3.672a2 2 0 0 1 1.414.586l.828.828A2 2 0 0 0 9.828 3v1z"/>
@@ -196,27 +197,12 @@ session_start();
 		                         <span class="nav-link-text">Products</span>
 					        </a><!--//nav-link-->
 					    </li><!--//nav-item-->
-
-						<li class="nav-item">
-					        <!--//Bootstrap Icons: https://icons.getbootstrap.com/ -->
-					        <a class="nav-link" href="customer.php">
-						        <span class="nav-icon">
-						        <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-folder" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-  <path d="M9.828 4a3 3 0 0 1-2.12-.879l-.83-.828A1 1 0 0 0 6.173 2H2.5a1 1 0 0 0-1 .981L1.546 4h-1L.5 3a2 2 0 0 1 2-2h3.672a2 2 0 0 1 1.414.586l.828.828A2 2 0 0 0 9.828 3v1z"/>
-  <path fill-rule="evenodd" d="M13.81 4H2.19a1 1 0 0 0-.996 1.09l.637 7a1 1 0 0 0 .995.91h10.348a1 1 0 0 0 .995-.91l.637-7A1 1 0 0 0 13.81 4zM2.19 3A2 2 0 0 0 .198 5.181l.637 7A2 2 0 0 0 2.826 14h10.348a2 2 0 0 0 1.991-1.819l.637-7A2 2 0 0 0 13.81 3H2.19z"/>
-</svg>
-						         </span>
-		                         <span class="nav-link-text">Customers</span>
-					        </a><!--//nav-link-->
-					    </li><!--//nav-item-->
-
-						
 						
 					
 
 					    <li class="nav-item">
 					        <!--//Bootstrap Icons: https://icons.getbootstrap.com/ -->
-					        <a class="nav-link" href="categories.php">
+					        <a class="nav-link active" href="categories.php">
 						        <span class="nav-icon">
 						        <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-card-list" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
   <path fill-rule="evenodd" d="M14.5 3h-13a.5.5 0 0 0-.5.5v9a.5.5 0 0 0 .5.5h13a.5.5 0 0 0 .5-.5v-9a.5.5 0 0 0-.5-.5zm-13-1A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h13a1.5 1.5 0 0 0 1.5-1.5v-9A1.5 1.5 0 0 0 14.5 2h-13z"/>
@@ -226,7 +212,7 @@ session_start();
   <circle cx="3.5" cy="10.5" r=".5"/>
 </svg>
 						         </span>
-								 <span class="nav-link-text">category</span>
+								 <span class="nav-link-text active">category</span>
 							</a><!--//nav-link-->
 						</li><!--//nav-item-->
 						<li class="nav-item">
@@ -242,6 +228,7 @@ session_start();
 									</svg>
 								</span>
 
+                                
 		                         <span class="nav-link-text text-success">Orders</span>
 					        </a><!--//nav-link-->
 					    </li><!--//nav-item-->
@@ -376,7 +363,7 @@ session_start();
 		    <div class="container-xl">
 			    <div class="row g-3 mb-4 align-items-center justify-content-between">
 				    <div class="col-auto">
-			            <h1 class="app-page-title mb-0 text-success">Products</h1>
+			            <h1 class="app-page-title mb-0 text-success">Customers</h1>
 				    </div>
 				    <div class="col-auto">
 					     <div class="page-utilities">
@@ -417,7 +404,7 @@ session_start();
 			    
 			   <?php
 
-include("fetchallproducts.php");
+include("customerfetchview.php");
 
 
 ?>
@@ -458,4 +445,7 @@ include("fetchallproducts.php");
 
 </body>
 </html> 
+
+
+
 

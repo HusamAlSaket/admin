@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Delete category</title>
+    <title>Delete User</title>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
 <body>
@@ -25,10 +25,10 @@
             if (result.isConfirmed) {
                 Swal.fire({
                     title: 'Deleted!',
-                    text: 'Your file has been deleted.',
+                    text: 'The user has been deleted.',
                     icon: 'success'
                 }).then(() => {
-                    window.location.href = 'categories.php';
+                    window.location.href = 'customer.php';
                 });
             } else {
                 window.location.href = '404.php';
@@ -37,7 +37,7 @@
         </script>
         ";
         try {
-            $sql = "DELETE FROM category WHERE category_id = :id";
+            $sql = "DELETE FROM users WHERE id = :id";
             $stmt = $conn->prepare($sql);
             $stmt->bindParam(':id', $id, PDO::PARAM_INT);
             $stmt->execute();
@@ -46,7 +46,7 @@
             echo "<div class='alert alert-danger text-center mt-3'>Error: " . $e->getMessage() . "</div>";
         }
     } else {
-        echo "<div class='alert alert-warning text-center mt-3'>No category ID provided.</div>";
+        echo "<div class='alert alert-warning text-center mt-3'>No user ID provided.</div>";
     }
     ?>
 </body>

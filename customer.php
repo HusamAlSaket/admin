@@ -1,5 +1,6 @@
 <?php
 session_start();
+
 ?>
 
 <!DOCTYPE html>
@@ -16,15 +17,15 @@ session_start();
 	<meta name="description" content="Portal - Bootstrap 5 Admin Dashboard Template For Developers">
 	<meta name="author" content="Xiaoying Riley at 3rd Wave Media">
 	<link rel="shortcut icon" href="favicon.ico">
-	<link rel="stylesheet" href="./scss/style.css">
+
 	<!-- FontAwesome JS-->
 	<script defer src="assets/plugins/fontawesome/js/all.min.js"></script>
 
 	<!-- App CSS -->
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
 		integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-	<link id="theme-style" rel="stylesheet" href="assets/css/portal.css">
 
+	<link id="theme-style" rel="stylesheet" href="assets/css/portal.css">
 </head>
 
 <body class="app">
@@ -192,7 +193,7 @@ session_start();
 				</div><!--//app-header-content-->
 			</div><!--//container-fluid-->
 		</div><!--//app-header-inner-->
-		<div id="app-sidepanel" class="app-sidepanel sidepanel-hidden">
+		<div id="app-sidepanel" class="app-sidepanel">
 			<div id="sidepanel-drop" class="sidepanel-drop"></div>
 			<div class="sidepanel-inner d-flex flex-column">
 				<a href="#" id="sidepanel-close" class="sidepanel-close d-xl-none">&times;</a>
@@ -201,6 +202,7 @@ session_start();
 							alt="logo"><span class="logo-text">PORTAL</span></a>
 
 				</div><!--//app-branding-->
+
 				<nav id="app-nav-main" class="app-nav app-nav-main flex-grow-1">
 					<ul class="app-menu list-unstyled accordion" id="menu-accordion">
 						<li class="nav-item">
@@ -220,7 +222,7 @@ session_start();
 						</li><!--//nav-item-->
 						<li class="nav-item">
 							<!--//Bootstrap Icons: https://icons.getbootstrap.com/ -->
-							<a class="nav-link" href="products.php">
+							<a class="nav-link " href="products.php">
 								<span class="nav-icon">
 									<svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-folder"
 										fill="currentColor" xmlns="http://www.w3.org/2000/svg">
@@ -235,38 +237,28 @@ session_start();
 						</li><!--//nav-item-->
 
 						<li class="nav-item">
-					        <!--//Bootstrap Icons: https://icons.getbootstrap.com/ -->
-					        <a class="nav-link" href="customer.php">
-						        <span class="nav-icon">
-						        <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-folder" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-  <path d="M9.828 4a3 3 0 0 1-2.12-.879l-.83-.828A1 1 0 0 0 6.173 2H2.5a1 1 0 0 0-1 .981L1.546 4h-1L.5 3a2 2 0 0 1 2-2h3.672a2 2 0 0 1 1.414.586l.828.828A2 2 0 0 0 9.828 3v1z"/>
-  <path fill-rule="evenodd" d="M13.81 4H2.19a1 1 0 0 0-.996 1.09l.637 7a1 1 0 0 0 .995.91h10.348a1 1 0 0 0 .995-.91l.637-7A1 1 0 0 0 13.81 4zM2.19 3A2 2 0 0 0 .198 5.181l.637 7A2 2 0 0 0 2.826 14h10.348a2 2 0 0 0 1.991-1.819l.637-7A2 2 0 0 0 13.81 3H2.19z"/>
-</svg>
-						         </span>
-		                         <span class="nav-link-text">Customers</span>
-					        </a><!--//nav-link-->
-					    </li><!--//nav-item-->
-
-						<li class="nav-item">
-					        <!--//Bootstrap Icons: https://icons.getbootstrap.com/ -->
-					        <a class="nav-link" href="categories.php">
-						        <span class="nav-icon">
-						        <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-card-list" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-  <path fill-rule="evenodd" d="M14.5 3h-13a.5.5 0 0 0-.5.5v9a.5.5 0 0 0 .5.5h13a.5.5 0 0 0 .5-.5v-9a.5.5 0 0 0-.5-.5zm-13-1A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h13a1.5 1.5 0 0 0 1.5-1.5v-9A1.5 1.5 0 0 0 14.5 2h-13z"/>
-  <path fill-rule="evenodd" d="M5 8a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7A.5.5 0 0 1 5 8zm0-2.5a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5zm0 5a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5z"/>
-  <circle cx="3.5" cy="5.5" r=".5"/>
-  <circle cx="3.5" cy="8" r=".5"/>
-  <circle cx="3.5" cy="10.5" r=".5"/>
-</svg>
-						         </span>
-								 <span class="nav-link-text active">category</span>
+							<!--//Bootstrap Icons: https://icons.getbootstrap.com/ -->
+							<a class="nav-link active" href="customer.php">
+								<span class="nav-icon">
+									<svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-folder"
+										fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+										<path
+											d="M9.828 4a3 3 0 0 1-2.12-.879l-.83-.828A1 1 0 0 0 6.173 2H2.5a1 1 0 0 0-1 .981L1.546 4h-1L.5 3a2 2 0 0 1 2-2h3.672a2 2 0 0 1 1.414.586l.828.828A2 2 0 0 0 9.828 3v1z" />
+										<path fill-rule="evenodd"
+											d="M13.81 4H2.19a1 1 0 0 0-.996 1.09l.637 7a1 1 0 0 0 .995.91h10.348a1 1 0 0 0 .995-.91l.637-7A1 1 0 0 0 13.81 4zM2.19 3A2 2 0 0 0 .198 5.181l.637 7A2 2 0 0 0 2.826 14h10.348a2 2 0 0 0 1.991-1.819l.637-7A2 2 0 0 0 13.81 3H2.19z" />
+									</svg>
+								</span>
+								<span class="nav-link-text">Customers</span>
 							</a><!--//nav-link-->
 						</li><!--//nav-item-->
 
-						
+
+
+
+
 						<li class="nav-item">
 							<!--//Bootstrap Icons: https://icons.getbootstrap.com/ -->
-							<a class="nav-link active" href="orders2.php">
+							<a class="nav-link " href="categories.php">
 								<span class="nav-icon">
 									<svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-card-list"
 										fill="currentColor" xmlns="http://www.w3.org/2000/svg">
@@ -279,10 +271,26 @@ session_start();
 										<circle cx="3.5" cy="10.5" r=".5" />
 									</svg>
 								</span>
-								<span class="nav-link-text">Orders</span>
+								<span class="nav-link-text active">category</span>
 							</a><!--//nav-link-->
 						</li><!--//nav-item-->
-						
+						<li class="nav-item">
+							<!--//Bootstrap Icons: https://icons.getbootstrap.com/ -->
+							<a class="nav-link" href="orders2.php">
+								<span class="nav-icon">
+									<svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-folder"
+										fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+										<path
+											d="M9.828 4a3 3 0 0 1-2.12-.879l-.83-.828A1 1 0 0 0 6.173 2H2.5a1 1 0 0 0-1 .981L1.546 4h-1L.5 3a2 2 0 0 1 2-2h3.672a2 2 0 0 1 1.414.586l.828.828A2 2 0 0 0 9.828 3v1z" />
+										<path fill-rule="evenodd"
+											d="M13.81 4H2.19a1 1 0 0 0-.996 1.09l.637 7a1 1 0 0 0 .995.91h10.348a1 1 0 0 0 .995-.91l.637-7A1 1 0 0 0 13.81 4zM2.19 3A2 2 0 0 0 .198 5.181l.637 7A2 2 0 0 0 2.826 14h10.348a2 2 0 0 0 1.991-1.819l.637-7A2 2 0 0 0 13.81 3H2.19z" />
+									</svg>
+								</span>
+
+
+								<span class="nav-link-text text-success">Orders</span>
+							</a><!--//nav-link-->
+						</li><!--//nav-item-->
 						<li class="nav-item has-submenu">
 							<!--//Bootstrap Icons: https://icons.getbootstrap.com/ -->
 							<a class="nav-link submenu-toggle" href="#" data-bs-toggle="collapse"
@@ -297,7 +305,6 @@ session_start();
 											d="M6 0h7a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2v-1a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H6a1 1 0 0 0-1 1H4a2 2 0 0 1 2-2z" />
 									</svg>
 								</span>
-								
 								<span class="nav-link-text">Pages</span>
 								<span class="submenu-arrow">
 									<svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-chevron-down"
@@ -364,6 +371,7 @@ session_start();
 								<span class="nav-link-text">Charts</span>
 							</a><!--//nav-link-->
 						</li><!--//nav-item-->
+
 						<li class="nav-item">
 							<!--//Bootstrap Icons: https://icons.getbootstrap.com/ -->
 							<a class="nav-link" href="help.html">
@@ -433,6 +441,7 @@ session_start();
 						</ul><!--//footer-menu-->
 					</nav>
 				</div><!--//app-sidepanel-footer-->
+
 			</div><!--//sidepanel-inner-->
 		</div><!--//app-sidepanel-->
 	</header><!--//app-header-->
@@ -441,119 +450,74 @@ session_start();
 
 		<div class="app-content pt-3 p-md-3 p-lg-4">
 			<div class="container-xl">
-
 				<div class="row g-3 mb-4 align-items-center justify-content-between">
 					<div class="col-auto">
-						<h1 class="app-page-title mb-0 text-success">Orders</h1>
+						<h1 class="app-page-title mb-0 text-success">Customers</h1>
 					</div>
 					<div class="col-auto">
 						<div class="page-utilities">
 							<div class="row g-2 justify-content-start justify-content-md-end align-items-center">
+							
+
+								<div id="results"></div>
+
+								<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+								<script>
+									function searchCustomer() {
+										const query = $('#search-docs').val().trim();
+										$('#results').empty();
+										if (query.length === 0) {
+											$('#results').html("<div class='alert alert-info text-center mt-3'>Please enter a search term.</div>");
+											return;
+										}
+
+										$.ajax({
+											url: 'fetchcustomer.php',
+											method: 'GET',
+											data: { searchdocs: query },
+											success: function (data) {
+												$('#results').html(data);
+											},
+											error: function (jqXHR, textStatus, errorThrown) {
+												console.error('Error:', textStatus, errorThrown);
+												$('#results').html("<div class='alert alert-danger text-center mt-3'>Error fetching results. Please try again.</div>");
+											}
+										});
+									}
+								</script>
+
 								<div class="col-auto">
-									<form class="table-search-form row gx-1 align-items-center">
-										<div class="col-auto">
-											<input type="text" id="search-orders" name="searchorders"
-												class="form-control search-orders" placeholder="Search">
-										</div>
-										<div class="col-auto">
-											<button type="submit" class="btn app-btn-secondary">Search</button>
-										</div>
-									</form>
+
+							
 								</div>
 								<div class="col-auto">
-								<form method="GET" class="d-flex gap-2">
-    <select class="form-select w-auto" name="date_filter">
-        <option selected value="option-1">All</option>
-        <option value="option-2">This week</option>
-        <option value="option-3">This month</option>
-        <option value="option-4">Last 3 months</option>
-    </select>
-    <button type="submit" class="btn btn-primary">Filter</button>
-                                </form>
-								</div>
 								
+								</div>
 							</div><!--//row-->
 						</div><!--//table-utilities-->
 					</div><!--//col-auto-->
 				</div><!--//row-->
 
+				<?php
 
-				<nav id="orders-table-tab"
-					class="orders-table-tab app-nav-tabs nav shadow-sm flex-column flex-sm-row mb-4">
-					<a class="flex-sm-fill text-sm-center nav-link active" id="orders-all-tab" data-bs-toggle="tab"
-						href="#orders-all" role="tab" aria-controls="orders-all" aria-selected="true">All</a>
-					<a class="flex-sm-fill text-sm-center nav-link" id="orders-paid-tab" data-bs-toggle="tab"
-						href="#orders-paid" role="tab" aria-controls="orders-paid" aria-selected="false">completed</a>
-					<a class="flex-sm-fill text-sm-center nav-link" id="orders-pending-tab" data-bs-toggle="tab"
-						href="#orders-pending" role="tab" aria-controls="orders-pending"
-						aria-selected="false">Pending</a>
-					<a class="flex-sm-fill text-sm-center nav-link" id="orders-cancelled-tab" data-bs-toggle="tab"
-						href="#orders-cancelled" role="tab" aria-controls="orders-cancelled"
-						aria-selected="false">Cancelled</a>
-				</nav>
-				<div class="tab-content" id="orders-table-tab-content">
-					<div class="tab-pane fade show active" id="orders-all" role="tabpanel"
-						aria-labelledby="orders-all-tab">
-						<?php
-                        include('filterdate.php'); 
-                        ?>
-						<nav class="app-pagination">
-							<ul class="pagination justify-content-center">
-								<li class="page-item disabled">
-									<a class="page-link" href="#" tabindex="-1" aria-disabled="true">Previous</a>
-								</li>
-								<li class="page-item active"><a class="page-link" href="#">1</a></li>
-								<li class="page-item"><a class="page-link" href="#">2</a></li>
-								<li class="page-item"><a class="page-link" href="#">3</a></li>
-								<li class="page-item">
-									<a class="page-link" href="#">Next</a>
-								</li>
-							</ul>
-						</nav><!--//app-pagination-->
-
-					</div><!--//tab-pane-->
-
-					<div class="tab-pane fade" id="orders-paid" role="tabpanel" aria-labelledby="orders-paid-tab">
-						<div class="app-card app-card-orders-table mb-5">
-							<div class="app-card-body">
-								<div class="table-responsive">
-							<?php
-					include('fetchcompletedcarts.php');
+				include("fetchcustomer.php");
 
 
-?>
-							</div><!--//table-responsive-->
-							</div><!--//app-card-body-->
-						</div><!--//app-card-->
-					</div><!--//tab-pane-->
-
-					<div class="tab-pane fade" id="orders-pending" role="tabpanel" aria-labelledby="orders-pending-tab">
-						<div class="app-card app-card-orders-table mb-5">
-							<div class="app-card-body">
-								<div class="table-responsive">
-								<?php
-                                include('fetchpendingcarts.php');
-                                ?>
-		
-								</div><!--//table-responsive-->
-							</div><!--//app-card-body-->
-						</div><!--//app-card-->
-					</div><!--//tab-pane-->
-					<div class="tab-pane fade" id="orders-cancelled" role="tabpanel"
-						aria-labelledby="orders-cancelled-tab">
-						<div class="app-card app-card-orders-table mb-5">
-							<div class="app-card-body">
-							<?php
-
-include('fetchcancelledcarts.php');
-?>
-							</div><!--//app-card-body-->
-						</div><!--//app-card-->
-					</div><!--//tab-pane-->
-				</div><!--//tab-content-->
-
-
-
+				?>
+				<nav class="app-pagination mt-5">
+					<ul class="pagination justify-content-center">
+						<li class="page-item disabled">
+							<a class="page-link" href="#" tabindex="-1" aria-disabled="true">Previous</a>
+						</li>
+						<li class="page-item active"><a class="page-link" href="#">1</a></li>
+						<li class="page-item"><a class="page-link" href="#">2</a></li>
+						<li class="page-item"><a class="page-link" href="#">3</a></li>
+						<li class="page-item">
+							<a class="page-link" href="#">Next</a>
+						</li>
+					</ul>
+				</nav><!--//app-pagination-->
 			</div><!--//container-fluid-->
 		</div><!--//app-content-->
 

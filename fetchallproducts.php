@@ -6,7 +6,7 @@ try {
     $stmt = $conn->query($sql);
     $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
     if (count($result) > 0) {
-        echo "<table border='1' cellpadding='10' cellspacing='0'>
+        echo "<table class='table table-bordered'>
                 <tr>
                     <th>ID</th>
                     <th>Product Name</th>

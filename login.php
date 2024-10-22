@@ -19,7 +19,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     if ($email === $SuperAdminEmail && $password === $SuperAdminPassword) {
         $_SESSION['admin'] = true; 
-        header("Location: index.html");
+        header("Location: index.php");
         exit();
     } else {
         try {
@@ -127,8 +127,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 			    <div class="d-flex flex-column align-content-end h-100">
 				    <div class="h-100"></div>
 				    <div class="overlay-content p-3 p-lg-4 rounded">
-					    <h5 class="mb-3 overlay-title">Explore Portal Admin Template</h5>
-					    <div>Portal is a free Bootstrap 5 admin dashboard template. You can download and view the template license <a href="https://themes.3rdwavemedia.com/bootstrap-templates/admin-dashboard/portal-free-bootstrap-admin-dashboard-template-for-developers/">here</a>.</div>
+					    <h5 class="mb-1 overlay-title">Explore Portal Admin Template</h5>
+					    
 				    </div>
 				</div>
 		    </div><!--//auth-background-overlay-->

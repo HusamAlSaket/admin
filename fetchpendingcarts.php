@@ -1,6 +1,7 @@
 <?php include 'data/config.php'; ?>
 
 <?php
+// Display success or error messages
 if (isset($_SESSION['message'])) {
     echo '<div class="alert alert-success text-center mt-3">';
     echo $_SESSION['message'];
@@ -17,6 +18,7 @@ if (isset($_SESSION['error'])) {
 $filter = '';
 $filterCondition = '';
 
+// Handle date filtering based on user selection
 if (isset($_GET['date_filter'])) {
     $filter = $_GET['date_filter'];
     switch ($filter) {
@@ -36,8 +38,22 @@ if (isset($_GET['date_filter'])) {
 }
 
 try {
-    $sql = 'SELECT * FROM `order`' . $filterCondition;
-    $stmt = $conn->query($sql);
+    // Use the correct table name 'orders' and add a status filter
+    $sql = 'SELECT * FROM `orders`';
+    
+    // Check if there are any filter conditions
+    if (!empty($filterCondition)) {
+        $sql .= ' ' . $filterCondition; // Add the filter condition
+    }
+    
+    // Always add the status condition
+    // Use 'WHERE' if filterCondition is not empty, otherwise use 'WHERE'
+    if (empty($filterCondition)) {
+        $sql .= ' WHERE status = "pending"'; // First condition
+    } else {
+        $sql .= ' AND status = "pending"'; // Subsequent condition
+    }
+        $stmt = $conn->query($sql);
     $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
     if (count($result) > 0) {
@@ -45,17 +61,18 @@ try {
         echo '<table class="table text-center" style="border: none;">';
         echo '<thead>';
         echo '<tr style="background-color: transparent;">';
-        echo '<th>Order</th>';
-        echo '<th>Customer</th>';
-        echo '<th>Created at</th>';
+        echo '<th>Order ID</th>';  // Changed to 'Order ID'
+        echo '<th>Customer ID</th>'; // Changed to 'Customer ID'
+        echo '<th>Order Date</th>'; // Changed to 'Order Date'
         echo '<th>Status</th>';
-        echo '<th>Total amount</th>';
-        echo '<th>Updated at</th>';
+        echo '<th>Total Amount</th>'; // Changed to 'Total Amount'
+        echo '<th>Updated At</th>'; // Added 'Updated At'
         echo '</tr>';
         echo '</thead>';
         echo '<tbody>';
 
         foreach ($result as $row) {
+            // Define status classes
             $statusClass = '';
             switch (htmlspecialchars($row['status'])) {
                 case 'pending':
@@ -71,16 +88,15 @@ try {
                     $statusClass = 'text-secondary fw-bold';
             }
 
-            if ($row['status'] == "pending") {
-                echo '<tr>';
-                echo '<td>' . htmlspecialchars($row['order_id']) . '</td>';
-                echo '<td>' . htmlspecialchars($row['customer_id']) . '</td>';
-                echo '<td>' . htmlspecialchars($row['order_date']) . '</td>';
-                echo '<td class="text-center"><span class="' . $statusClass . '">' . htmlspecialchars($row['status']) . '</span></td>';
-                echo '<td>' . htmlspecialchars($row['total_amount']) . '</td>';
-                echo '<td>' . htmlspecialchars(is_null($row['updated_at']) ? 'null' : $row['updated_at']) . '</td>';
-                echo '</tr>';
-            }
+            // Output only pending orders
+            echo '<tr>';
+            echo '<td>' . htmlspecialchars($row['order_id']) . '</td>';
+            echo '<td>' . htmlspecialchars($row['customer_id']) . '</td>';
+            echo '<td>' . htmlspecialchars($row['order_date']) . '</td>';
+            echo '<td class="text-center"><span class="' . $statusClass . '">' . htmlspecialchars($row['status']) . '</span></td>';
+            echo '<td>' . htmlspecialchars($row['total_amount']) . '</td>';
+            echo '<td>' . htmlspecialchars(is_null($row['updated_at']) ? 'null' : $row['updated_at']) . '</td>';
+            echo '</tr>';
         }
 
         echo '</tbody>';

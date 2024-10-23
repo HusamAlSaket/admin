@@ -3,23 +3,24 @@
 include("./data/config.php");
 
 $searchTerm = '';
-$users = [];
+$customers = [];
 
 if (isset($_GET['searchdocs']) && !empty(trim($_GET['searchdocs']))) {
     $searchTerm = trim($_GET['searchdocs']);
     $search = '%' . $searchTerm . '%';
 
-    $sql = "SELECT * FROM users WHERE fullname LIKE :search OR email LIKE :search OR phonenumber LIKE :search OR role LIKE :search OR city LIKE :search OR address LIKE :search";
+    $sql = "SELECT * FROM customers WHERE CONCAT(first_name, ' ', last_name) LIKE :search 
+            OR email LIKE :search OR phone_number LIKE :search OR address LIKE :search";
     $stmt = $conn->prepare($sql);
     $stmt->bindParam(':search', $search, PDO::PARAM_STR);
     $stmt->execute();
 
-    $users = $stmt->fetchAll(PDO::FETCH_ASSOC);
+    $customers = $stmt->fetchAll(PDO::FETCH_ASSOC);
 } else {
-    $sql = "SELECT * FROM users";
+    $sql = "SELECT * FROM customers";
     $stmt = $conn->prepare($sql);
     $stmt->execute();
-    $users = $stmt->fetchAll(PDO::FETCH_ASSOC);
+    $customers = $stmt->fetchAll(PDO::FETCH_ASSOC);
 }
 ?>
 
@@ -29,7 +30,7 @@ if (isset($_GET['searchdocs']) && !empty(trim($_GET['searchdocs']))) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>User Search</title>
+    <title>Customer Search</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 </head>
 
@@ -50,35 +51,32 @@ if (isset($_GET['searchdocs']) && !empty(trim($_GET['searchdocs']))) {
         <table class="table table-bordered">
             <thead>
                 <tr>
-                    <th>Full Name</th>
+                    <th>First Name</th>
+                    <th>Last Name</th>
                     <th>Email</th>
                     <th>Phone Number</th>
-                    <th>Role</th>
-                    <th>City</th>
                     <th>Address</th>
                     <th>Action</th>
                 </tr>
             </thead>
             <tbody>
-                <?php if (count($users) > 0): ?>
-                    <?php foreach ($users as $user): ?>
+                <?php if (count($customers) > 0): ?>
+                    <?php foreach ($customers as $customer): ?>
                         <tr>
-                            <td><?php echo htmlspecialchars($user['fullname']); ?></td>
-                            <td><?php echo htmlspecialchars($user['email']); ?></td>
-                            <td><?php echo htmlspecialchars($user['phonenumber']); ?></td>
-                            <td><?php echo htmlspecialchars($user['role']); ?></td>
-                            <td><?php echo htmlspecialchars($user['city']); ?></td>
-                            <td><?php echo htmlspecialchars($user['address']); ?></td>
+                            <td><?php echo htmlspecialchars($customer['first_name']); ?></td>
+                            <td><?php echo htmlspecialchars($customer['last_name']); ?></td>
+                            <td><?php echo htmlspecialchars($customer['email']); ?></td>
+                            <td><?php echo htmlspecialchars($customer['phone_number']); ?></td>
+                            <td><?php echo htmlspecialchars($customer['address']); ?></td>
                             <td>
-                                <a href='customerview.php?id=<?php echo htmlspecialchars($user['id']); ?>' class='btn btn-warning btn-sm'>View</a>
-                            
+                                <a href='customerview.php?id=<?php echo htmlspecialchars($customer['customer_id']); ?>' class='btn btn-warning btn-sm'>View</a>
                             </td>
                         </tr>
                     <?php endforeach; ?>
                 <?php else: ?>
                     <tr>
-                        <td colspan="7" class="text-center">
-                            <?php echo "User has not been found"; ?>
+                        <td colspan="6" class="text-center">
+                            <?php echo "Customer has not been found"; ?>
                         </td>
                     </tr>
                 <?php endif; ?>

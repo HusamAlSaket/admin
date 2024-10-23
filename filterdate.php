@@ -1,3 +1,4 @@
+
 <?php
 include 'data/config.php';
 
@@ -23,7 +24,8 @@ if (isset($_GET['date_filter'])) {
 }
 
 try {
-    $sql = "SELECT * FROM `order` $filterCondition";
+    // Use the correct table name 'orders'
+    $sql = "SELECT * FROM `orders` $filterCondition"; 
     $stmt = $conn->query($sql);
     $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
@@ -34,10 +36,11 @@ try {
                         <tr>
                             <th>Order ID</th>
                             <th>Customer ID</th>
-                            <th>Created At</th>
+                            <th>Order Date</th> <!-- Changed header to 'Order Date' -->
                             <th>Status</th>
                             <th>Total Amount</th>
-                            <th>Updated At</th>
+                            <th>Created At</th> <!-- Added 'Created At' -->
+                            <th>Updated At</th> <!-- Added 'Updated At' -->
                         </tr>
                     </thead>
                     <tbody>";
@@ -64,7 +67,8 @@ try {
                     <td>" . htmlspecialchars($row['order_date']) . "</td>
                     <td class='text-center'><span class='$statusClass'>" . htmlspecialchars($row['status']) . "</span></td>
                     <td>" . htmlspecialchars($row['total_amount']) . "</td>
-                    <td>" . htmlspecialchars(is_null($row['updated_at']) ? '' : $row['updated_at']) . "</td>
+                    <td>" . htmlspecialchars($row['created_at']) . "</td> <!-- Display Created At -->
+                    <td>" . htmlspecialchars(is_null($row['updated_at']) ? '' : $row['updated_at']) . "</td> <!-- Display Updated At -->
                   </tr>";
         }
 

@@ -37,7 +37,7 @@
         </script>
         ";
         try {
-            $sql = "DELETE FROM product WHERE product_id = :id";
+            $sql = "DELETE FROM products WHERE product_id = :id";
             $stmt = $conn->prepare($sql);
             $stmt->bindParam(':id', $id, PDO::PARAM_INT);
             $stmt->execute();

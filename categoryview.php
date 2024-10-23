@@ -13,7 +13,7 @@
         if (isset($_GET['id'])) {
             $category_id = $_GET['id'];
             try {
-                $sql = "SELECT * FROM category WHERE category_id = :id";
+                $sql = "SELECT * FROM categories WHERE category_id = :id"; // Adjusted table name to 'categories'
                 $stmt = $conn->prepare($sql);
                 $stmt->bindParam(':id', $category_id, PDO::PARAM_INT);
                 $stmt->execute();
@@ -24,6 +24,7 @@
                             <tr>
                                 <th>Category ID</th>
                                 <th>Category Name</th>
+                                <th>Image</th> <!-- Added image column -->
                                 <th>Created At</th>
                                 <th>Updated At</th>
                                 <th>Action</th>
@@ -31,12 +32,15 @@
                             <tr>
                                 <td>" . htmlspecialchars($category['category_id']) . "</td>
                                 <td>" . htmlspecialchars($category['category_name']) . "</td>
+                                <td>
+                                    <img src='" . htmlspecialchars(is_null($category['image_url']) ? 'default-image.jpg' : $category['image_url']) . "' alt='Category Image' style='width: 50px; height: 50px;' /> <!-- Image display -->
+                                </td>
                                 <td>" . htmlspecialchars($category['created_at']) . "</td>
                                 <td>" . htmlspecialchars(is_null($category['updated_at']) ? '' : $category['updated_at']) . "</td>
                                 <td>
                                     <a href='updatecategory.php?id=" . htmlspecialchars($category['category_id']) . "' class='btn btn-warning btn-sm'>Update</a>
                                     <form method='POST' action='deletecategory.php' style='display: inline-block;'>
-                                        <input type='hidden' name='id' value='" . htmlspecialchars($category['category_id']) . "' />
+                                        <input type='hidden' name='category_id' value='" . htmlspecialchars($category['category_id']) . "' /> <!-- Changed to category_id -->
                                         <input type='submit' class='btn btn-danger btn-sm' value='Delete' />
                                     </form>
                                 </td>

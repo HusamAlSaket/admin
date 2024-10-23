@@ -14,11 +14,13 @@
         if (isset($_POST['update'])) {
             $id = $_POST['id'];
             $categoryName = $_POST['categoryName'];
+            $imageUrl = $_POST['imageUrl'];
             try {
-                $sql = "UPDATE category SET category_name = :category_name WHERE category_id = :id";
+                $sql = "UPDATE categories SET category_name = :category_name, image_url = :image_url WHERE category_id = :id"; // Adjusted table name
                 $stmt = $conn->prepare($sql);
                 $stmt->bindParam(':id', $id, PDO::PARAM_INT);
                 $stmt->bindParam(':category_name', $categoryName, PDO::PARAM_STR);
+                $stmt->bindParam(':image_url', $imageUrl, PDO::PARAM_STR); 
                 if ($stmt->execute()) {
                     echo "<script>
                             Swal.fire({
@@ -30,7 +32,7 @@
                                     window.location.href = 'categories.php';
                                 }
                             });
-                          </script>";
+                            </script>";
                 } else {
                     echo "<script>Swal.fire('Error updating category.', '', 'error');</script>";
                 }
@@ -43,7 +45,7 @@
         if (isset($_GET['id'])) {
             $id = $_GET['id'];
             try {
-                $sql = "SELECT * FROM category WHERE category_id = :id";
+                $sql = "SELECT * FROM categories WHERE category_id = :id"; // Adjusted table name
                 $stmt = $conn->prepare($sql);
                 $stmt->bindParam(':id', $id, PDO::PARAM_INT);
                 $stmt->execute();
@@ -58,8 +60,8 @@
                                 <input type='text' class='form-control' id='categoryName' name='categoryName' value='" . htmlspecialchars($category['category_name']) . "' required>
                             </div>
                             <div class='mb-3'>
-                                <label for='categoryId' class='form-label'>Category ID</label>
-                                <input type='number' class='form-control' id='categoryId' name='CategoryId' value='" . htmlspecialchars($category['category_id']) . "' required>
+                                <label for='imageUrl' class='form-label'>Image URL</label>
+                                <input type='text' class='form-control' id='imageUrl' name='imageUrl' value='" . htmlspecialchars($category['image_url']) . "' required> <!-- Added Image URL field -->
                             </div>
                             <button type='submit' name='update' class='btn btn-primary'>Update Category</button>
                           </form>";

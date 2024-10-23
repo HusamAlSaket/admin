@@ -18,13 +18,16 @@
             $Price = $_POST['Price'];
             $StockQuantity = $_POST['StockQuantity'];
             $CategoryId = $_POST['CategoryId'];
+            // Average rating and created_at are assumed not to be updated directly
+
             try {
-                $sql = "UPDATE product 
+                $sql = "UPDATE products 
                         SET product_name = :product_name, 
                             description = :description, 
                             price = :price, 
                             stock_quantity = :stock_quantity, 
-                            category_id = :category_id 
+                            category_id = :category_id, 
+                            updated_at = NOW() 
                         WHERE product_id = :id";
                 $stmt = $conn->prepare($sql);
                 $stmt->bindParam(':id', $id, PDO::PARAM_INT);
@@ -57,7 +60,7 @@
         if (isset($_GET['id'])) {
             $id = $_GET['id'];
             try {
-                $sql = "SELECT * FROM product WHERE product_id = :id";
+                $sql = "SELECT * FROM products WHERE product_id = :id";
                 $stmt = $conn->prepare($sql);
                 $stmt->bindParam(':id', $id, PDO::PARAM_INT);
                 $stmt->execute();
@@ -87,8 +90,20 @@
                                 <label for='CategoryId' class='form-label'>Category ID</label>
                                 <input type='number' class='form-control' id='CategoryId' name='CategoryId' value='" . htmlspecialchars($product['category_id']) . "' required>
                             </div>
+                            <div class='mb-3'>
+                                <label for='AverageRating' class='form-label'>Average Rating</label>
+                                <input type='text' class='form-control' id='AverageRating' name='AverageRating' value='" . htmlspecialchars($product['average_rating']) . "' readonly>
+                            </div>
+                            <div class='mb-3'>
+                                <label for='CreatedAt' class='form-label'>Created At</label>
+                                <input type='text' class='form-control' id='CreatedAt' name='CreatedAt' value='" . htmlspecialchars($product['created_at']) . "' readonly>
+                            </div>
+                            <div class='mb-3'>
+                                <label for='UpdatedAt' class='form-label'>Updated At</label>
+                                <input type='text' class='form-control' id='UpdatedAt' name='UpdatedAt' value='" . htmlspecialchars($product['updated_at']) . "' readonly>
+                            </div>
                             <button type='submit' name='update' class='btn btn-primary'>Update Product</button>
-                          </form>";
+                        </form>";
                 } else {
                     echo "<div class='alert alert-warning text-center mt-3'>No product found.</div>";
                 }
